@@ -10,3 +10,5 @@ rerun.txt
 Gemfile.lock
 .bundle
 *.gem
+
+lazy_high_charts-1.1.5.gem
