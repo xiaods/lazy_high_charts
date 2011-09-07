@@ -25,7 +25,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rails", "~> 3.0"
 
   s.description = <<-DESC
-    lazy_high_charts is a Rails 3.x gem for displaying Highcharts graphs.
+    lazy_high_charts is a Rails 3.x gem for displaying Highcharts graphs.  -- Modified for Fullscreen, Inc. use.
+    Lets you have multiple charts on a page and update them dynamically.
   DESC
 
   s.files = `git ls-files`.split("\n")
