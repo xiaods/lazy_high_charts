@@ -40,7 +40,6 @@ module LazyHighCharts
             // 3. Build the chart
             console.log(global_chart_#{id})
               global_chart_#{id} = new Highcharts.Chart(options);
-              console.log(global_chart_#{id})
         });
         </script>
       EOJS
