@@ -38,7 +38,6 @@ module LazyHighCharts
             // 2. Add callbacks (non-JSON compliant)
               #{capture(&block) if block_given?}
             // 3. Build the chart
-            console.log(global_chart_#{id})
               global_chart_#{id} = new Highcharts.Chart(options);
         });
         </script>
