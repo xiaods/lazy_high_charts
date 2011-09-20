@@ -2,10 +2,10 @@
 module LazyHighCharts
   module LayoutHelper
     
-    def high_chart(placeholder, object  , &block)
+    def high_chart(placeholder, object  ,id="nil", &block)
       object.html_options.merge!({:id=>placeholder})
       object.options[:chart][:renderTo] = placeholder
-      high_graph(placeholder,object , &block).concat(content_tag("div","", object.html_options))
+      high_graph(placeholder,object ,id, &block).concat(content_tag("div","", object.html_options))
     end
     
     def high_stock(placeholder, object  , &block)
@@ -14,9 +14,12 @@ module LazyHighCharts
       high_graph_stock(placeholder,object , &block).concat(content_tag("div","", object.html_options))
     end
 
-    def high_graph(placeholder, object, &block)
+    def high_graph(placeholder, object, id, &block)
       graph =<<-EOJS
       <script type="text/javascript">
+      var global_chart_#{id};
+      
+      
       jQuery(function() {
             // 1. Define JSON options
             var options = {
@@ -35,7 +38,7 @@ module LazyHighCharts
             // 2. Add callbacks (non-JSON compliant)
               #{capture(&block) if block_given?}
             // 3. Build the chart
-              var chart = new Highcharts.Chart(options);
+              global_chart_#{id} = new Highcharts.Chart(options);
         });
         </script>
       EOJS
